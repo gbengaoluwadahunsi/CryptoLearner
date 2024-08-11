@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, matchPath } from "react-router-dom";
-import { Todo, Learner, Market, Signin, Footer, Home } from "./pages";
+import { Todo, Learner, Market, SignIn, Footer, Home } from "./pages";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import DashBoard from "./pages/Dashboard/DashBoard";
+import { AuthProvider } from "./context/AuthContext";
 
 const AppContent = () => {
   const location = useLocation();
@@ -13,6 +17,9 @@ const AppContent = () => {
     '/learn',
     '/market-news',
     '/signin',
+    '/forgot-password',
+    '/dashboard',
+    '/reset-password/:token'
   ].some((path) => matchPath(path, location.pathname));
 
   return (
@@ -25,7 +32,10 @@ const AppContent = () => {
         <Route path="/todo" element={<Todo />} />
         <Route path="/learn" element={<Learner />} />
         <Route path="/market-news" element={<Market />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path = "/forgot-password" element = {<ForgotPassword/>}/>
+        <Route path = "/reset-password/:token" element = {<ResetPassword/>}/>
+        <Route path = "/dashboard" element = {<DashBoard/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
 
@@ -38,7 +48,9 @@ const App = () => {
   return (
     <main className="bg-slate-800 min-h-screen">
       <Router>
-        <AppContent />
+       <AuthProvider>
+       <AppContent />
+       </AuthProvider>
       </Router>
     </main>
   );

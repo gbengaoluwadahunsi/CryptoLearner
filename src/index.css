@@ -1,45 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+  
+
 
 *{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-
+    box-sizing: border-box;
+    margin : 0;
+    padding: 0;
 }
-
 
 body{
- max-width: 1024px;
- margin: 0 auto;
-  color: white;
+    color: white;
+    max-width: 1600px;
+    margin: 0 auto;
 }
-
-
-.text-gradient {
-  @apply bg-gradient-to-r from-green-400 via-amber-500 to-yellow-500;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  color: amber;
-}
-
 
 /* styles.css */
-.background-grid {
-  position: relative;
-  background-image: 
-    linear-gradient(to right, rgba(212, 181, 87, 0.1) 1px, transparent 0.1px),
-    linear-gradient(to bottom, rgba(193, 169, 97, 0.2) 1px, transparent 0.1px);
-    
-    opacity: 1;
-  background-size: 100px 100px; 
-  height: 30rem;
-  overflow: hidden; 
-}
+.text-gradient {
+    @apply bg-gradient-to-r from-green-400 via-amber-500 to-yellow-500;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 
+  /* styles.css */
+.background-squares {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px; /* Size of the squares */
+  }
+  
 
-
-
-
+  

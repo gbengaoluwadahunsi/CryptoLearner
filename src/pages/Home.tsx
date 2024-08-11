@@ -2,6 +2,7 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import image from "../assets/images.jpeg";
 import avatar from "../assets/avat.avif";
+
 // Custom Button Component
 const Button: React.FC<{
   variant?: "outline";
@@ -10,7 +11,7 @@ const Button: React.FC<{
 }> = ({ variant, size, children }) => {
   return (
     <button
-      className={`px-4 py-2 rounded transition duration-300 ${
+      className={` px-10 md:px-4 md:py-2 rounded transition duration-300 ${
         variant === "outline"
           ? "border border-white text-white hover:border-t-amber-500 hover:border-r-green-500 shadow-lg hover:shadow shadow-slate-500"
           : "bg-gradient-to-r from-green-400 via-teal-500 to-amber-500  text-white hover:bg-none hover:bg-blue-600"
@@ -27,7 +28,7 @@ const Card: React.FC<{ className?: string; children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <div className={`bg-white p-6 rounded-lg shadow-lg ${className}`}>
+    <div className={`bg-green-100 p-2 rounded-lg shadow-lg ${className}`}>
       {children}
     </div>
   );
@@ -35,7 +36,7 @@ const Card: React.FC<{ className?: string; children: React.ReactNode }> = ({
 
 // Custom CardHeader Component
 const CardHeader: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <div className="pb-4 border-b border-gray-200">{children}</div>;
+  return <div className=" p-4 h-full lg:h-40 border-b  bg-green-400 border-gray-200">{children}</div>;
 };
 
 // Custom CardTitle Component
@@ -71,15 +72,15 @@ const Home: React.FC = () => {
   return (
     <section className="flex flex-col gap-40">
       {/* Hero Section */}
-      <section className="min-h-screen p-4 lg:px-8 background-grid bg-slate-900">
+      <section className="lg:min-h-screen p-4 lg:px-8 background-grid background-squares bg-slate-900">
         <motion.main
-          className="flex  flex-col gap-4 justify-center items-center mx-auto opacity-100 w-[76%] p-44 bg-slate-900"
+          className="  flex  flex-col gap-4 justify-center items-center mx-auto opacity-100  w-full lg:w-[76%] py-32 md:p-44 bg-slate-900"
           style={{ y: heroParallax }}
         >
-          <h1 className="font-extrabold lg:text-8xl leading-10 p-2 text-gradient z-50">
+          <h1 className="font-extrabold text-5xl lg:text-8xl leading-10 p-2 text-gradient z-50">
             <span>Crypto</span>Learner
           </h1>
-          <h4 className="lg:text-2xl">The Hub for Crypto Enthusiasts</h4>
+          <h4 className="  text-xl lg:text-2xl">The Hub for Crypto Enthusiasts</h4>
           <div className="flex gap-4">
             <Button>Get Started</Button>
             <Button variant="outline">Learn More</Button>
@@ -112,7 +113,7 @@ const Home: React.FC = () => {
 
       {/* Testimonials Section */}
       <motion.section
-        className="p-8 lg:px-16 flex flex-col  mx-10 gap-8"
+        className="p-8 lg:px-16 flex flex-col justify-center items-center mx-10 gap-8"
         style={{ y: testimonialsParallax }}
       >
         <h2 className="text-4xl font-bold text-center mb-6">Testimonials</h2>
@@ -132,7 +133,7 @@ const Home: React.FC = () => {
 
       {/* Call to Action Section */}
       <motion.section
-        className="p-8 lg:px-16 flex flex-col items-center justify-center rounded-lg bg-amber-200 mx-40 text-slate-800 "
+        className="p-8 lg:px-16 flex mb-20 flex-col items-center justify-center rounded-lg bg-amber-200 mx-10 text-slate-800 "
         style={{ y: ctaParallax }}
       >
         <h2 className="text-3xl font-bold text-center mb-6">Join Us Today</h2>
@@ -149,7 +150,7 @@ const Home: React.FC = () => {
 // FeatureCard Component
 const FeatureCard: React.FC<FeatureCardProps> = ({ title, description }) => {
   return (
-    <Card className="hover:shadow-2xl cursor-pointer  border-r-4 border-r-blue-600 shadow-sm shadow-slate-700  bg-green-600 hover:bg-green-500  transition-transform transform hover:scale-105">
+    <Card className="  hover:shadow-2xl cursor-pointer  border-r-4 border-r-blue-600  hover:bg-green-500  transition-transform transform hover:scale-105">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
