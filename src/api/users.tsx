@@ -1,4 +1,4 @@
- export const APIUSERS_URL = 'http://localhost:5000/auth'
+ export const APIUSERS_URL = 'https://cryptolearner-server.onrender.com/auth'
 
  
 

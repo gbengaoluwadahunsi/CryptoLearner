@@ -26,7 +26,7 @@ const ResetPassword = () => {
     try {
      
       const response = await axios.post(
-        `${APIUSERS_URL }reset-password/${token}`,
+        `${APIUSERS_URL }/reset-password/${token}`,
         { password }
       );
       if (response.status === 200){

@@ -56,14 +56,14 @@ const SignIn: React.FC = () => {
         };
 
     axios
-      .post(`http://localhost:5000/auth/${isLogin ? "signin" : "signup"}`, dataToSend)
+      .post(`https://cryptolearner-server.onrender.com/auth/${isLogin ? "signin" : "signup"}`, dataToSend)
       .then((res) => {
         if (res.status === 200 && isLogin) {
           alert("Login Successful!");
           setIsAuthenticated(true);
           
           // Check if the user is an admin
-          axios.post('http://localhost:5000/admin/emails', { email: formData.email })
+          axios.post('https://cryptolearner-server.onrender.com/admin/emails', { email: formData.email })
             .then((response) => {
               const { isAdmin } = response.data;
               setIsAdmin(isAdmin);
