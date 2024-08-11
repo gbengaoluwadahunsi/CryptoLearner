@@ -15,6 +15,7 @@ const SignIn: React.FC = () => {
   const navigate = useNavigate();
   const { setIsAuthenticated, setIsAdmin } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState("");
   const [formData, setFormData] = useState<FormData>({
     username: "",
@@ -38,6 +39,7 @@ const SignIn: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+    setIsSubmitting(true);
 
     if (!isLogin && formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
@@ -87,7 +89,9 @@ const SignIn: React.FC = () => {
         } else {
           setError("An error occurred. Please try again.");
         }
-      });
+      }).finally(() => {
+        setIsSubmitting(false);
+        })
   };
 
   return (
@@ -144,7 +148,9 @@ const SignIn: React.FC = () => {
        
               className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Login
+              {isSubmitting ? "Logging in..." : "Login"
+                
+              }
             </button>
             <Link  to = "/forgot-password" className="text-indigo-500 text-md hover:underline-offset-1 cursor-pointer "> Forgot Password?</Link>
             <div className="my-4 flex gap-2">
@@ -241,7 +247,9 @@ const SignIn: React.FC = () => {
               type="submit"
               className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Sign Up
+              {isSubmitting ? "Signing up..." : "Sign Up"}
+                
+              
             </button>
             <div className="my-4 flex gap-2">
               <h3>Already Registered? </h3>
