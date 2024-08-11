@@ -247,7 +247,7 @@ const SignIn: React.FC = () => {
               type="submit"
               className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              {isSubmitting ? "Signing up..." : "Sign Up"}
+              {isSubmitting ? "Signing up ... " : "Sign Up"}
                 
               
             </button>
