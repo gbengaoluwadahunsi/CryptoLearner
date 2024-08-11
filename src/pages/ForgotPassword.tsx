@@ -16,7 +16,7 @@ const ForgotPassword = () => {
 
     try {
   
-      const response = await axios.post(`${APIUSERS_URL}forgot-password`, {
+      const response = await axios.post(`${APIUSERS_URL}/forgot-password`, {
         email,
       });
 
