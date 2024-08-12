@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 const Footer: React.FC = () => {
   const { isAdmin } = useAuth();
-  console.log('Is Admin:', isAdmin);
+
 
   // Helper function to generate nav link classes
   const getNavLinkClass = (isActive: boolean) =>
