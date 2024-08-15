@@ -8,8 +8,11 @@ import DashBoard from "./pages/Dashboard/DashBoard";
 import { AuthProvider } from "./context/AuthContext";
 import { CryptoDetails } from "./pages/LearnerComponent/CryptoDetails";
 
+import { useAuth } from './context/AuthContext';
+
 const AppContent = () => {
   const location = useLocation();
+  const { isAdmin } = useAuth();
 
   // Check if the current route is a known route
   const isKnownRoute = [
@@ -17,15 +20,17 @@ const AppContent = () => {
     '/todo',
     '/signin',
     '/forgot-password',
-    '/dashboard',
     '/reset-password/:token',
-    'coins/:id'
-  ].some((path) => matchPath(path, location.pathname));
+    '/coins/:id'
+  ].some((path) => matchPath({ path, end: true }, location.pathname));
+
+  // Conditionally render Navbar and Footer only if user is authorized or on known routes
+  const shouldRenderNavbarFooter = isAdmin || isKnownRoute;
 
   return (
     <>
-      {/* Conditionally render Navbar and Footer only on known routes */}
-      {isKnownRoute && <Navbar />}
+      {/* Conditionally render Navbar and Footer */}
+      {shouldRenderNavbarFooter && <Navbar />}
 
       <Routes>
         <Route path='/' element={<Home />} />
@@ -33,13 +38,13 @@ const AppContent = () => {
         <Route path="/learn" element={<Learnerlayout />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/coins/:id" element={<CryptoDetails />} />
-        <Route path = "/forgot-password" element = {<ForgotPassword/>}/>
-        <Route path = "/reset-password/:token" element = {<ResetPassword/>}/>
-        <Route path = "/dashboard" element = {<DashBoard/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
+        {isAdmin ? <Route path="/dashboard" element={<DashBoard />} /> : <Route path="*" element={<div className="min-h-screen flex justify-center items-center font-extrabold text-2xl">Not Authorized</div>} />}
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {isKnownRoute && <Footer />}
+      {shouldRenderNavbarFooter && <Footer />}
     </>
   );
 };
