@@ -31,6 +31,18 @@ body{
       linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 100px 100px; /* Size of the squares */
   }
+
+  .nav-mobile{
+    z-index: 9999;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-mobile{
+      position: absolute;
+    
+    }
+  }
+
   
 
   

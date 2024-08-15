@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         </NavLink>
 
         {/* Navigation Links */}
-        <nav className="flex flex-wrap gap-12 lg:gap-6 justify-center items-center py-10 md:py-0 text-lg font-bold">
+        <nav className="flex flex-wrap gap-12  justify-center items-center py-10 md:py-0 text-lg font-bold">
           <NavLink to="/" className={({ isActive }) => getNavLinkClass(isActive)}>
             Home
           </NavLink>
@@ -29,11 +29,9 @@ const Footer: React.FC = () => {
             ToDo
           </NavLink>
           <NavLink to="/learn" className={({ isActive }) => getNavLinkClass(isActive)}>
-            Learn
+          CryptoInfo
           </NavLink>
-          <NavLink to="/market-news" className={({ isActive }) => getNavLinkClass(isActive)}>
-            Market-News
-          </NavLink>
+          
 
           {isAdmin && (
             <NavLink to="/dashboard" className={({ isActive }) => getNavLinkClass(isActive)}>

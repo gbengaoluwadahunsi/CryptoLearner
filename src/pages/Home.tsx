@@ -70,11 +70,11 @@ const Home: React.FC = () => {
   const ctaParallax = useTransform(scrollY, [900, 1200], ["0%", "5%"]);
 
   return (
-    <section className="flex flex-col gap-40">
+    <section className="flex flex-col gap-28 lg:gap-40">
       {/* Hero Section */}
       <section className="lg:min-h-screen p-4 lg:px-8 background-grid background-squares bg-slate-900">
         <motion.main
-          className="  flex  flex-col gap-4 justify-center items-center mx-auto opacity-100  w-full lg:w-[76%] py-32 md:p-44 bg-slate-900"
+          className="  flex  flex-col gap-4 justify-center items-center mx-auto opacity-100  w-full lg:w-[76%] py-32 md:p-44 lg:bg-slate-900"
           style={{ y: heroParallax }}
         >
           <h1 className="font-extrabold text-5xl lg:text-8xl leading-10 p-2 text-gradient z-50">
@@ -90,7 +90,7 @@ const Home: React.FC = () => {
 
       {/* Features Section */}
       <motion.section
-        className="p-8 lg:px-16 flex flex-col -mt-20 mx-10 gap-8"
+        className="p-8 lg:px-16 flex flex-col -mt-20 lg:mx-10 gap-8"
         style={{ y: featureParallax }}
       >
         <h2 className="text-4xl font-bold text-center mb-6">Features</h2>
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
 
       {/* Testimonials Section */}
       <motion.section
-        className="p-8 lg:px-16 flex flex-col justify-center items-center mx-10 gap-8"
+        className="p-8 lg:px-16 flex flex-col justify-center items-center lg:mx-10 gap-8"
         style={{ y: testimonialsParallax }}
       >
         <h2 className="text-4xl font-bold text-center mb-6">Testimonials</h2>
@@ -133,7 +133,7 @@ const Home: React.FC = () => {
 
       {/* Call to Action Section */}
       <motion.section
-        className="p-8 lg:px-16 flex mb-20 flex-col items-center justify-center rounded-lg bg-amber-200 mx-10 text-slate-800 "
+        className="p-8 lg:px-16 flex mb-20 flex-col items-center justify-center rounded-lg bg-amber-200 mx-8 lg:mx-10 text-slate-800 "
         style={{ y: ctaParallax }}
       >
         <h2 className="text-3xl font-bold text-center mb-6">Join Us Today</h2>

@@ -1,9 +1,8 @@
 // components/index.ts
 import Todo from './Todo';
-import Learner from './Learner';
-import Market from './Market';
+import Learnerlayout from './CryptoInfo';
 import SignIn from './SignIn';
 import Footer from './Footer';
 import Home from './Home';
 
-export { Todo, Learner, Market, SignIn, Footer, Home };
+export { Todo, Learnerlayout, SignIn, Footer, Home };

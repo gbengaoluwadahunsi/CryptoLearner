@@ -10,7 +10,7 @@ const Todo = () => {
       </div>
 
      <div className='h-full flex flex-col gap-6'>
-     <h1 className='text-5xl font-extrabold  w-fit'>Learning To Do List</h1>
+     <h1 className=' text-xl lg:text-5xl font-extrabold  w-fit'>Learning To Do List</h1>
      
      
      <TodoList _id={''} text={''} date={''} is_completed={false}   />

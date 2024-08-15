@@ -78,7 +78,7 @@ const TodoForm: React.FC<Todo>= () => {
   return (
     <section className='flex flex-col gap-4'>
       <TodoHero todo_completed={todos.filter(todo => todo.is_completed).length} todos={todos} />
-      <form onSubmit={handleSubmit} className='flex gap-4 justify-center items-center'>
+      <form onSubmit={handleSubmit} className='flex gap-4 justify-center  flex-wrap items-center'>
         <label htmlFor="todotext">
           <input
             type="text"

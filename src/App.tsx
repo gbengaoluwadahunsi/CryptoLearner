@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, matchPath } from "react-router-dom";
-import { Todo, Learner, Market, SignIn, Footer, Home } from "./pages";
+import { Todo, Learnerlayout,  SignIn, Footer, Home } from "./pages";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import DashBoard from "./pages/Dashboard/DashBoard";
 import { AuthProvider } from "./context/AuthContext";
+import { CryptoDetails } from "./pages/LearnerComponent/CryptoDetails";
 
 const AppContent = () => {
   const location = useLocation();
@@ -14,12 +15,11 @@ const AppContent = () => {
   const isKnownRoute = [
     '/',
     '/todo',
-    '/learn',
-    '/market-news',
     '/signin',
     '/forgot-password',
     '/dashboard',
-    '/reset-password/:token'
+    '/reset-password/:token',
+    'coins/:id'
   ].some((path) => matchPath(path, location.pathname));
 
   return (
@@ -30,9 +30,9 @@ const AppContent = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/todo" element={<Todo />} />
-        <Route path="/learn" element={<Learner />} />
-        <Route path="/market-news" element={<Market />} />
+        <Route path="/learn" element={<Learnerlayout />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/coins/:id" element={<CryptoDetails />} />
         <Route path = "/forgot-password" element = {<ForgotPassword/>}/>
         <Route path = "/reset-password/:token" element = {<ResetPassword/>}/>
         <Route path = "/dashboard" element = {<DashBoard/>}/>
