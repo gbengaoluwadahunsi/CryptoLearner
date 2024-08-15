@@ -35,11 +35,11 @@ const Navbar = () => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener('touchend', handleClickOutside);
+    
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener('touchend', handleClickOutside);
+   
     };
   }, []);
 
