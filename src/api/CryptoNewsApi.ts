@@ -2,7 +2,7 @@
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const rapidApiKey = import.meta.env.VITE_RAPID_API_KEY;
+const rapidApiKey = import.meta.env.VITE_APP_RAPID_API_KEY;
 
 
  const cryptoNewsApiHeaders = {

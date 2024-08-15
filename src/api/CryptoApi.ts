@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const coinGeckoApikey = import.meta.env.VITE_GECKO_API_KEY
+const coinGeckoApikey = import.meta.env.VITE_APP_GECKO_API_KEY
 const cryptoApiHeaders = {
   'accept': 'application/json',
   'x-cg-demo-api-key': coinGeckoApikey
